@@ -1,5 +1,6 @@
+import React from 'react';
 import type { Preview } from "@storybook/react";
-import { Providers } from '@lib/providers';
+import { DragDropContext } from "react-beautiful-dnd";
 
 const preview: Preview = {
   parameters: {
@@ -13,9 +14,9 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <Providers>
-        { Story }
-      </Providers>
+      <DragDropContext onDragEnd={() => { }}>
+        <Story />
+      </DragDropContext>
     )
   ]
 };

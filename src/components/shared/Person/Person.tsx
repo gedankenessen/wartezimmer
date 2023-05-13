@@ -1,5 +1,4 @@
 import React from 'react';
-import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 const PersonWrapper = styled.div`
@@ -21,19 +20,12 @@ const PersonText = styled.p`
 type PersonVariants = 'full' | 'border';
 
 export interface PersonProps {
-  id: string;
   text: string;
   variant?: PersonVariants;
 }
 
-export const Person: React.FC<PersonProps> = ({ text, id, variant = "full" }) => (
-  <Draggable draggableId={id} index={-1}>
-    {
-      (provided) => (
-        <PersonWrapper key={id} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-          <PersonText>{text}</PersonText>
-        </PersonWrapper>
-      )
-    }
-  </Draggable>
+export const Person: React.FC<PersonProps> = ({ text, variant = "full" }) => (
+  <PersonWrapper>
+    <PersonText>{text}</PersonText>
+  </PersonWrapper>
 )

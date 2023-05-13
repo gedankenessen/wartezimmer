@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
+        "baseUrl": "./",
         "lib": [
             "dom",
             "dom.iterable",
@@ -8,10 +9,13 @@
         ],
         "paths": {
             "@components/*": [
-                "src/components/*"
+                "./src/components/*"
             ],
             "@lib/*": [
-                "src/lib/*"
+                "./src/lib/*"
+            ],
+            "@layout/*": [
+                "./src/layout/*"
             ]
         },
         "composite": true,
@@ -24,14 +28,19 @@
         "noFallthroughCasesInSwitch": true,
         "module": "esnext",
         "moduleResolution": "node",
+        "incremental": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx"
     },
     "include": [
+        "src",
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules"
     ]
 }

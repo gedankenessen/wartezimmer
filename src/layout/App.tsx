@@ -1,3 +1,5 @@
+import { Draggable } from '@components/shared/Draggable/Draggable';
+import { Person } from '@components/shared/Person/Person';
 import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
@@ -62,9 +64,16 @@ export const App: React.FC = () => {
       <AppWrapper>
         <AppContent>
           {
-            Object.entries(zones).map(([id, person], key) => <Dragzone key={key} id={id} person={
-              person ? { id: person, ...people[person] } : null
-            } />)}
+            Object.entries(zones).map(([id, person], key) =>
+              <Dragzone key={key} id={id}>
+                {person &&
+                  <Draggable id={person}>
+                    <Person {...people[person]} />
+                  </Draggable>
+                }
+              </Dragzone>
+            )
+          }
         </AppContent>
       </AppWrapper>
     </DragDropContext>
