@@ -1,5 +1,5 @@
-import { StoryObj } from '@storybook/react';
-import { Dragzone } from './Dragzone';
+import { StoryObj } from "@storybook/react";
+import { Dragzone } from "./Dragzone";
 
 const meta = {
   title: "Shared/Dragzone",
@@ -12,5 +12,5 @@ type Story = StoryObj<typeof meta>;
 export const Base: Story = {
   args: {
     id: "Z1",
-  }
-}
+  },
+};

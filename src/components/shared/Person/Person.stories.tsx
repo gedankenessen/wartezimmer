@@ -1,5 +1,5 @@
-import { StoryObj } from '@storybook/react';
-import { Person } from './Person';
+import { StoryObj } from "@storybook/react";
+import { Person } from "./Person";
 
 const meta = {
   title: "Shared/Person",
@@ -12,6 +12,6 @@ type Story = StoryObj<typeof meta>;
 export const Base: Story = {
   args: {
     id: "CS",
-    text: "CS"
-  }
-}
+    text: "CS",
+  },
+};

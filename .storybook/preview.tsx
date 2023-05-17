@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import type { Preview } from "@storybook/react";
 import { DragDropContext } from "react-beautiful-dnd";
-import { MockDroppable } from '../src/lib/mock/Droppable';
+import { MockDroppable } from "../src/lib/mock/Droppable";
 
 const preview: Preview = {
   parameters: {
@@ -15,13 +15,13 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <DragDropContext onDragEnd={() => { }}>
+      <DragDropContext onDragEnd={() => {}}>
         <MockDroppable>
           <Story />
         </MockDroppable>
       </DragDropContext>
-    )
-  ]
+    ),
+  ],
 };
 
 export default preview;

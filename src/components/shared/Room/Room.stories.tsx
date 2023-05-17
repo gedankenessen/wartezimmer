@@ -1,5 +1,5 @@
-import { StoryObj } from '@storybook/react';
-import { Room } from './Room';
+import { StoryObj } from "@storybook/react";
+import { Room } from "./Room";
 
 const meta = {
   title: "Shared/Room",
@@ -13,18 +13,18 @@ export const Base: Story = {
   args: {
     id: "lobby",
     title: "Lobby",
-    people: []
-  }
-}
+    people: [],
+  },
+};
 
 export const WithPeople: Story = {
   args: {
     id: "lobby",
     title: "Lobby",
     people: [
-      {id: "AB", text: "AB"},
-      {id: "CD", text: "CD"},
-      {id: "EF", text: "EF"}
-    ]
-  }
-}
+      { id: "AB", text: "AB" },
+      { id: "CD", text: "CD" },
+      { id: "EF", text: "EF" },
+    ],
+  },
+};

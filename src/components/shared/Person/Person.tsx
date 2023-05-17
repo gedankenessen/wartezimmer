@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Draggable } from '../Draggable/Draggable';
+import React from "react";
+import styled from "styled-components";
+import { Draggable } from "../Draggable/Draggable";
 
 const PersonWrapper = styled.div`
   width: 3.2rem;
   height: 3.2rem;
   color: white;
-  background-color: #2A3730;
+  background-color: #2a3730;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,9 +15,9 @@ const PersonWrapper = styled.div`
   font-size: 1.6rem;
   line-height: 1.6rem;
   text-align: center;
-`
+`;
 
-type PersonVariants = 'full' | 'border';
+type PersonVariants = "full" | "border";
 
 export interface PersonProps {
   id: string;
@@ -26,10 +26,13 @@ export interface PersonProps {
   variant?: PersonVariants;
 }
 
-export const Person: React.FC<PersonProps> = ({ id, index = 0, text, variant = "full" }) => (
+export const Person: React.FC<PersonProps> = ({
+  id,
+  index = 0,
+  text,
+  variant = "full",
+}) => (
   <Draggable id={id} index={index}>
-  <PersonWrapper>
-    {text}
-  </PersonWrapper>
-    </Draggable>
-)
+    <PersonWrapper>{text}</PersonWrapper>
+  </Draggable>
+);
