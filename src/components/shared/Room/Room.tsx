@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Droppable } from '../Droppable/Droppable';
 import { Person, PersonProps } from '../Person/Person';
 
 const RoomWrapper = styled.div`
@@ -31,19 +32,22 @@ const RoomPeopleWrapper = styled.div`
 `
 
 export interface RoomProps {
+  id: string;
   title: string;
   people: PersonProps[]
 }
 
-export const Room: React.FC<RoomProps> = ({ title, people }) => (
+export const Room: React.FC<RoomProps> = ({ id, title, people }) => (
   <RoomWrapper>
     <RoomTitle>{title}</RoomTitle>
-    <RoomPeopleWrapper>
-      {
-        people.map((person, key) =>
-          <Person key={key} {...person} />
-        )
-      }
-    </RoomPeopleWrapper>
+    <Droppable id={id}>
+      <RoomPeopleWrapper>
+        {
+          people.map((person, key) =>
+            <Person key={key} index={key} {...person} />
+          )
+        }
+      </RoomPeopleWrapper>
+    </Droppable>
   </RoomWrapper>
 )

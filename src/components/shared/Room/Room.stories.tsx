@@ -11,6 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
   args: {
+    id: "lobby",
     title: "Lobby",
     people: []
   }
@@ -18,11 +19,12 @@ export const Base: Story = {
 
 export const WithPeople: Story = {
   args: {
+    id: "lobby",
     title: "Lobby",
     people: [
-      {text: "AB"},
-      {text: "CD"},
-      {text: "EF"}
+      {id: "AB", text: "AB"},
+      {id: "CD", text: "CD"},
+      {id: "EF", text: "EF"}
     ]
   }
 }
