@@ -1,7 +1,8 @@
-import { Draggable } from '@components/shared/Draggable/Draggable';
-import { Person } from '@components/shared/Person/Person';
 import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { Draggable } from 'src/components/shared/Draggable/Draggable';
+import { Droppable } from 'src/components/shared/Droppable/Droppable';
+import { Person } from 'src/components/shared/Person/Person';
 import styled from 'styled-components';
 import { Dragzone } from '../components/shared/Dragzone/Dragzone';
 
@@ -66,11 +67,13 @@ export const App: React.FC = () => {
           {
             Object.entries(zones).map(([id, person], key) =>
               <Dragzone key={key} id={id}>
-                {person &&
-                  <Draggable id={person}>
-                    <Person {...people[person]} />
-                  </Draggable>
-                }
+                <Droppable id={id}>
+                  {person &&
+                    <Draggable id={person}>
+                      <Person {...people[person]} />
+                    </Draggable>
+                  }
+                </Droppable>
               </Dragzone>
             )
           }
