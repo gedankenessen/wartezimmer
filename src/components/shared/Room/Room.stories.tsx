@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 export const Base: Story = {
   args: {
     id: "lobby",
-    title: "Lobby",
+    name: "Lobby",
     people: [],
   },
 };
@@ -20,11 +20,11 @@ export const Base: Story = {
 export const WithPeople: Story = {
   args: {
     id: "lobby",
-    title: "Lobby",
+    name: "Lobby",
     people: [
-      { id: "AB", text: "AB" },
-      { id: "CD", text: "CD" },
-      { id: "EF", text: "EF" },
+      { id: "AB", short: "AB" },
+      { id: "CD", short: "CD" },
+      { id: "EF", short: "EF" },
     ],
   },
 };

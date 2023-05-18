@@ -22,17 +22,17 @@ type PersonVariants = "full" | "border";
 export interface PersonProps {
   id: string;
   index?: number;
-  text: string;
+  short: string;
   variant?: PersonVariants;
 }
 
 export const Person: React.FC<PersonProps> = ({
   id,
   index = 0,
-  text,
+  short,
   variant = "full",
 }) => (
   <Draggable id={id} index={index}>
-    <PersonWrapper>{text}</PersonWrapper>
+    <PersonWrapper>{short}</PersonWrapper>
   </Draggable>
 );

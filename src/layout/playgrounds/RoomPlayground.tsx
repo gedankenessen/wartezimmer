@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Room } from "src/components/shared/Room/Room";
+import { useBoard } from "src/lib/board/board";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
@@ -18,48 +19,16 @@ const AppContent = styled.div`
 `;
 
 export const RoomPlayground: React.FC = () => {
-  const people: Record<string, { text: string }> = {
-    AB1: { text: "AB" },
-    CD1: { text: "CD" },
-    EF1: { text: "EF" },
-    GH1: { text: "GH" },
-    IJ1: { text: "IJ" },
-  };
-
-  const [rooms, setRooms] = useState<Record<string, string[]>>({
-    Z1: ["AB1", "IJ1"],
-    Z2: [],
-    Z3: ["CD1", "GH1", "EF1"],
-    Z4: [],
-  });
-
-  const handleOnDragEnd = (e: any) => {
-    const { source, destination, draggableId } = e;
-
-    if (!source || !destination) return;
-
-    setRooms({
-      ...rooms,
-      [destination.droppableId]: [
-        ...rooms[destination.droppableId],
-        draggableId,
-      ],
-      [source.droppableId]: rooms[source.droppableId].filter(
-        (id: string) => id !== draggableId
-      ),
-    });
-  };
-
+  const { distribution, people, rooms, onDragEnd } = useBoard();
   return (
-    <DragDropContext onDragEnd={handleOnDragEnd}>
+    <DragDropContext onDragEnd={onDragEnd}>
       <AppWrapper>
         <AppContent>
-          {Object.entries(rooms).map(([id, names]) => (
+          {Object.entries(rooms).map(([_, room], key) => (
             <Room
-              key={id}
-              id={id}
-              title={id}
-              people={names.map((id) => ({ ...people[id], id }))}
+              key={key}
+              {...room}
+              people={distribution[room.id].map((id) => people[id])}
             />
           ))}
         </AppContent>

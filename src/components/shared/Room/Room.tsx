@@ -33,19 +33,19 @@ const RoomPeopleWrapper = styled.div`
 
 export interface RoomProps {
   id: string;
-  title: string;
+  name: string;
   people: PersonProps[];
 }
 
-export const Room: React.FC<RoomProps> = ({ id, title, people }) => (
-  <RoomWrapper>
-    <RoomTitle>{title}</RoomTitle>
-    <Droppable id={id}>
+export const Room: React.FC<RoomProps> = ({ id, name, people }) => (
+  <Droppable id={id}>
+    <RoomWrapper>
+      <RoomTitle>{name}</RoomTitle>
       <RoomPeopleWrapper>
         {people.map((person, key) => (
           <Person key={key} index={key} {...person} />
         ))}
       </RoomPeopleWrapper>
-    </Droppable>
-  </RoomWrapper>
+    </RoomWrapper>
+  </Droppable>
 );
