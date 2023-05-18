@@ -11,6 +11,7 @@ const AppWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 3rem;
+  background-color: ${(p) => p.theme.colors.green100};
 `;
 
 const AppContent = styled.div`

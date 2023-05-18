@@ -15,7 +15,14 @@ const PersonWrapper = styled.div`
   font-size: 1.6rem;
   line-height: 1.6rem;
   text-align: center;
+
+  transition: background-color 0.3s;
+
   ${text()}
+
+  &:hover {
+    background-color: ${(p) => p.theme.colors.green600};
+  }
 `;
 
 type PersonVariants = "full" | "border";

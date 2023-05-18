@@ -42,8 +42,7 @@ const TimelineSpacer = styled.div`
   height: 2px;
   border-radius: 1rem;
   width: 100%;
-  opacity: 0.4;
-  background-color: ${(p) => p.theme.colors.green400};
+  background-color: ${(p) => p.theme.colors.grey200};
 `;
 
 export interface TimelineProps {

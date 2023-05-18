@@ -19,10 +19,10 @@ const TimescaleWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 32rem;
-  background-color: ${(p) => p.theme.colors.green700};
   padding: 1rem 0;
-
   border-radius: 1rem;
+
+  background-color: ${(p) => p.theme.colors.green700};
 `;
 
 const TimescaleTime = styled.h3<{ $headline?: boolean }>`

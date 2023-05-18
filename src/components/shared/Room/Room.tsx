@@ -14,6 +14,12 @@ const RoomWrapper = styled.div`
 
   background-color: ${(p) => p.theme.colors.green200};
   border-radius: 8px;
+
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${(p) => p.theme.colors.green400};
+  }
 `;
 
 const RoomTitle = styled.h3`

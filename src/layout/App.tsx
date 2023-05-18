@@ -1,8 +1,16 @@
 import React from "react";
 import { BoardProvider } from "src/lib/board/board";
 import { theme } from "src/lib/css/theme";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { RoomPlayground } from "./playgrounds/RoomPlayground";
+
+const AppWrapperOutter = styled.div`
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: ${(p) => p.theme.colors.green100};
+`;
 
 export const App: React.FC = () => {
   const people = {
@@ -77,7 +85,9 @@ export const App: React.FC = () => {
         initialRooms={rooms}
         initialDistribution={distribution}
       >
-        <RoomPlayground />
+        <AppWrapperOutter>
+          <RoomPlayground />
+        </AppWrapperOutter>
       </BoardProvider>
     </ThemeProvider>
   );
