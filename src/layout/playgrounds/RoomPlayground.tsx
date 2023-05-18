@@ -1,5 +1,5 @@
 import React from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { Room } from "src/components/shared/Room/Room";
 import { useBoard } from "src/lib/board/board";
 import styled from "styled-components";
@@ -19,7 +19,24 @@ const AppContent = styled.div`
 `;
 
 export const RoomPlayground: React.FC = () => {
-  const { distribution, people, rooms, onDragEnd } = useBoard();
+  const { distribution, people, rooms, dispatch } = useBoard();
+
+  const onDragEnd = (result: DropResult) => {
+    const { destination, draggableId, source } = result;
+
+    if (!source || !destination) return;
+    if (source.droppableId === destination.droppableId) return;
+
+    dispatch({
+      type: "MOVE_PERSON",
+      payload: {
+        personId: draggableId,
+        sourceId: source.droppableId,
+        destinationId: destination.droppableId,
+      },
+    });
+  };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <AppWrapper>

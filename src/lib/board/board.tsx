@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
-import { DropResult, OnDragEndResponder } from "react-beautiful-dnd";
+import React, { useContext, useReducer } from "react";
 import { Person, PersonId, Room, RoomId } from "../types/app";
+import { BoardAction, reducer } from "./reducer";
 
 export type PeopleProps = Record<string, Person>;
 export type RoomsProps = Record<string, Room>;
@@ -17,9 +17,7 @@ export interface BoardProviderData {
   people: PeopleProps;
   rooms: RoomsProps;
   distribution: Distribution;
-  //setPeople: React.Dispatch<React.SetStateAction<PeopleProps>>;
-  //setRooms: React.Dispatch<React.SetStateAction<RoomsProps>>;
-  onDragEnd: OnDragEndResponder;
+  dispatch: React.Dispatch<BoardAction>;
 }
 
 const BoardContext = React.createContext<BoardProviderData>(
@@ -34,31 +32,14 @@ export const BoardProvider: React.FC<
   initialDistribution = {},
   children,
 }) => {
-  // TODO: Swap setPeople, setRooms for state reducer
-  const [people, setPeople] = useState(initialPeople);
-  const [rooms, setRooms] = useState(initialRooms);
-  const [distribution, setDistritbution] = useState(initialDistribution);
-
-  const onDragEnd = (result: DropResult) => {
-    const { destination, draggableId, source } = result;
-
-    if (!source || !destination) return;
-    if (source.droppableId === destination.droppableId) return;
-
-    setDistritbution({
-      ...distribution,
-      [destination.droppableId]: [
-        draggableId,
-        ...distribution[destination.droppableId],
-      ],
-      [source.droppableId]: distribution[source.droppableId].filter(
-        (id) => id !== draggableId
-      ),
-    });
-  };
+  const [{ people, rooms, distribution }, dispatch] = useReducer(reducer, {
+    people: initialPeople,
+    rooms: initialRooms,
+    distribution: initialDistribution,
+  });
 
   return (
-    <BoardContext.Provider value={{ people, rooms, distribution, onDragEnd }}>
+    <BoardContext.Provider value={{ people, rooms, distribution, dispatch }}>
       {children}
     </BoardContext.Provider>
   );
