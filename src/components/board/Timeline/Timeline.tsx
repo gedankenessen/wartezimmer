@@ -25,8 +25,8 @@ const TimelineWrapper = styled.div`
 
   width: 100%;
   height: 32rem;
-  background-color: #e1ece6;
-  padding: 1rem 0;
+  background-color: ${(p) => p.theme.colors.green200};
+  padding: 1rem;
   overflow: hidden;
   border-radius: 1rem;
 `;
@@ -36,11 +36,14 @@ const TimeSlot = styled.div`
   flex-direction: row;
   gap: 1.2rem;
   height: 3.2rem;
-  margin: 0 1.2rem;
 `;
 
 const TimelineSpacer = styled.div`
-  border: 1px dashed #cbd4cf;
+  height: 2px;
+  border-radius: 1rem;
+  width: 100%;
+  opacity: 0.4;
+  background-color: ${(p) => p.theme.colors.green400};
 `;
 
 export interface TimelineProps {

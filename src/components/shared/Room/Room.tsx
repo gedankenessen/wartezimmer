@@ -12,14 +12,15 @@ const RoomWrapper = styled.div`
 
   min-width: 20rem;
 
-  background: #e1ece6;
+  background-color: ${(p) => p.theme.colors.green200};
   border-radius: 8px;
 `;
 
 const RoomTitle = styled.h3`
   font-family: Sans-Serif;
-  font-size: 2.4rem;
-  color: #2a3730;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: ${(p) => p.theme.colors.green700};
   margin: 0;
   padding: 0;
 `;

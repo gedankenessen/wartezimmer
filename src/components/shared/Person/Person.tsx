@@ -7,7 +7,7 @@ const PersonWrapper = styled.div`
   width: 3.2rem;
   height: 3.2rem;
   color: white;
-  background-color: #2a3730;
+  background-color: ${(p) => p.theme.colors.green700};
   display: flex;
   align-items: center;
   justify-content: center;

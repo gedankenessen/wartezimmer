@@ -1,5 +1,7 @@
 import React from "react";
 import { BoardProvider } from "src/lib/board/board";
+import { theme } from "src/lib/css/theme";
+import { ThemeProvider } from "styled-components";
 import { RoomPlayground } from "./playgrounds/RoomPlayground";
 
 export const App: React.FC = () => {
@@ -68,13 +70,15 @@ export const App: React.FC = () => {
     D4: { id: "D4" },
   };
   return (
-    <BoardProvider
-      initialAppointments={appoinments}
-      initialPeople={people}
-      initialRooms={rooms}
-      initialDistribution={distribution}
-    >
-      <RoomPlayground />
-    </BoardProvider>
+    <ThemeProvider theme={theme}>
+      <BoardProvider
+        initialAppointments={appoinments}
+        initialPeople={people}
+        initialRooms={rooms}
+        initialDistribution={distribution}
+      >
+        <RoomPlayground />
+      </BoardProvider>
+    </ThemeProvider>
   );
 };

@@ -5,7 +5,7 @@ import styled from "styled-components";
 const TimescaleWrapper = styled.div`
   display: grid;
   grid-template-rows: repeat(8, 3.7rem);
-  grid-template-columns: 1fr;
+  grid-template-columns: 6.8rem;
   grid-template-areas:
     "time"
     "spacer"
@@ -19,8 +19,7 @@ const TimescaleWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 32rem;
-  width: 6.8rem;
-  background-color: #2a3730;
+  background-color: ${(p) => p.theme.colors.green700};
   padding: 1rem 0;
 
   border-radius: 1rem;
@@ -33,10 +32,12 @@ const TimescaleTime = styled.h3<{ $headline?: boolean }>`
 `;
 
 const TimescaleSpacer = styled.div`
-  width: 3.7rem;
+  width: 2px;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: ${(p) => p.theme.colors.green400};
   margin: auto;
-  border: 1px dashed #cbd4cf;
-  transform: rotate(-90deg);
+  opacity: 0.4;
 `;
 
 export interface TimescaleProps {
