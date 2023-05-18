@@ -14,3 +14,10 @@ export const Base: Story = {
     id: "Z1",
   },
 };
+
+export const WithPerson: Story = {
+  args: {
+    id: "Z1",
+    person: { id: "AB", short: "AB" },
+  },
+};

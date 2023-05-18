@@ -1,4 +1,5 @@
 import React from "react";
+import { text } from "src/lib/typography/typography";
 import styled from "styled-components";
 import { Draggable } from "../Draggable/Draggable";
 
@@ -11,10 +12,10 @@ const PersonWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  font-family: Sans-Serif;
   font-size: 1.6rem;
   line-height: 1.6rem;
   text-align: center;
+  ${text()}
 `;
 
 type PersonVariants = "full" | "border";

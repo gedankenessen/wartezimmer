@@ -1,12 +1,12 @@
 import { Person, PersonId, RoomId } from "../types/app";
-import { Distribution, PeopleProps, RoomsProps } from "./board";
+import {
+  AppointmentProps,
+  Distribution,
+  PeopleProps,
+  RoomsProps,
+} from "./board";
 
-export type BoardActionType =
-  | "ADD_PERSON"
-  | "REMOVE_PERSON"
-  | "ADD_ROOM"
-  | "REMOVE_ROOM"
-  | "MOVE_PERSON";
+export type BoardActionType = "ADD_PERSON" | "MOVE_PERSON";
 
 export interface BoardActionAddPerson {
   type: "ADD_PERSON";
@@ -28,13 +28,14 @@ export interface BoardActionMovePerson {
 export type BoardAction = BoardActionAddPerson | BoardActionMovePerson;
 
 export interface BoardReducerState {
+  appointments: AppointmentProps;
   people: PeopleProps;
   rooms: RoomsProps;
   distribution: Distribution;
 }
 
 export const reducer = (state: BoardReducerState, action: BoardAction) => {
-  let { distribution, people, rooms } = state;
+  let { appointments, distribution, people, rooms } = state;
   switch (action.type) {
     case "ADD_PERSON":
       // Set person
@@ -53,21 +54,21 @@ export const reducer = (state: BoardReducerState, action: BoardAction) => {
           ],
         };
       }
-      return { distribution, people, rooms };
+      return { appointments, distribution, people, rooms };
     case "MOVE_PERSON":
       distribution = {
         ...distribution,
-        // Add to new room
+        // Add to room
         [action.payload.destinationId]: [
           action.payload.personId,
           ...distribution[action.payload.destinationId],
         ],
-        // Remove from old room
+        // Remove from appointment
         [action.payload.sourceId]: distribution[action.payload.sourceId].filter(
-          (id) => id !== action.payload.personId
+          (id) => action.payload.personId !== id
         ),
       };
-      return { distribution, people, rooms };
+      return { appointments, distribution, people, rooms };
     default:
       return state;
   }
