@@ -9,6 +9,12 @@ export const App: React.FC = () => {
     EF: { id: "EF", short: "EF" },
     GH: { id: "GH", short: "GH" },
     IJ: { id: "IJ", short: "IJ" },
+    KM: { id: "KM", short: "KM" },
+    NO: { id: "NO", short: "NO" },
+    PQ: { id: "PQ", short: "PQ" },
+    RS: { id: "RS", short: "RS" },
+    TV: { id: "TV", short: "TV" },
+    WU: { id: "WU", short: "WU" },
   };
 
   const rooms = {
@@ -20,9 +26,9 @@ export const App: React.FC = () => {
 
   const distribution = {
     Z1: ["AB", "IJ"],
-    Z2: [],
-    Z3: ["CD", "GH", "EF"],
-    Z4: [],
+    Z2: ["CD", "GH", "EF", "KM", "NO", "PQ"],
+    Z3: [],
+    Z4: ["RS", "TV", "WU"],
   };
 
   return (
