@@ -10,7 +10,9 @@ const DragzoneWrapperInner = styled.div`
 
   transition: border-color 0.3s;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus-visible {
     border-color: ${(p) => p.theme.colors.green700};
   }
 `;

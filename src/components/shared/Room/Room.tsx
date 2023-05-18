@@ -17,7 +17,9 @@ const RoomWrapper = styled.div`
 
   transition: background-color 0.3s;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus-visible {
     background-color: ${(p) => p.theme.colors.green400};
   }
 `;

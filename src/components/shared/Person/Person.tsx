@@ -20,7 +20,7 @@ const PersonWrapper = styled.div`
 
   ${text()}
 
-  &:hover {
+  &:hover, &:active, &:focus-visible {
     background-color: ${(p) => p.theme.colors.green600};
   }
 `;
