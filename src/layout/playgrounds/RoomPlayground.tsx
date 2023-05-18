@@ -28,7 +28,10 @@ export const RoomPlayground: React.FC = () => {
             <Room
               key={key}
               {...room}
-              people={distribution[room.id].map((id) => people[id])}
+              people={distribution[room.id].map((id, index) => ({
+                ...people[id],
+                index,
+              }))}
             />
           ))}
         </AppContent>

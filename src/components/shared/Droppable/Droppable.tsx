@@ -1,25 +1,30 @@
 import React from "react";
-import { Droppable as _Droppable } from "react-beautiful-dnd";
+import { Direction, Droppable as _Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
 
-const DroppableWrapper = styled.div`
-  background-color: red;
-`;
+const DroppableWrapperOutter = styled(_Droppable)``;
+
+const DroppableWrapperInner = styled.div``;
 
 export interface DroppableProps {
   id: string;
+  direction?: Direction;
 }
 
 export const Droppable: React.FC<React.PropsWithChildren<DroppableProps>> = ({
   id,
+  direction = "horizontal",
   children,
 }) => (
-  <_Droppable droppableId={id} type="COLUMN" direction="horizontal">
+  <DroppableWrapperOutter droppableId={id} direction={direction}>
     {(provided) => (
-      <DroppableWrapper {...provided.droppableProps} ref={provided.innerRef}>
+      <DroppableWrapperInner
+        {...provided.droppableProps}
+        ref={provided.innerRef}
+      >
         {children}
         {provided.placeholder}
-      </DroppableWrapper>
+      </DroppableWrapperInner>
     )}
-  </_Droppable>
+  </DroppableWrapperOutter>
 );

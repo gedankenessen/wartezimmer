@@ -48,8 +48,8 @@ export const BoardProvider: React.FC<
     setDistritbution({
       ...distribution,
       [destination.droppableId]: [
-        ...distribution[destination.droppableId],
         draggableId,
+        ...distribution[destination.droppableId],
       ],
       [source.droppableId]: distribution[source.droppableId].filter(
         (id) => id !== draggableId
