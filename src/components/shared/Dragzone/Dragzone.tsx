@@ -6,7 +6,7 @@ import { Person, PersonProps } from "../Person/Person";
 const DragzoneWrapperInner = styled.div`
   width: 3.2rem;
   height: 3.2rem;
-  border: 2px dashed #b1b1b1;
+  border: 2px dashed #c2c2c2;
 `;
 
 const DragzoneWrapperOutter = styled(Droppable)``;
@@ -17,7 +17,7 @@ export interface DragzoneProps {
 }
 
 export const Dragzone: React.FC<DragzoneProps> = ({ id, person }) => (
-  <DragzoneWrapperOutter id={id}>
+  <DragzoneWrapperOutter id={id} direction="horizontal">
     <DragzoneWrapperInner>
       {person && <Person {...person} />}
     </DragzoneWrapperInner>

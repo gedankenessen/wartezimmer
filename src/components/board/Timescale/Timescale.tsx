@@ -18,9 +18,12 @@ const TimescaleWrapper = styled.div`
 
   justify-content: center;
   align-items: center;
-  height: 30rem;
+  height: 32rem;
   width: 6.8rem;
   background-color: #2a3730;
+  padding: 1rem 0;
+
+  border-radius: 1rem;
 `;
 
 const TimescaleTime = styled.h3<{ $headline?: boolean }>`
