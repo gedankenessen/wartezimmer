@@ -1,5 +1,6 @@
 {
   "name": "wartezimmer",
+  "homepage": "http://gedankenessen.github.io/wartezimmer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
