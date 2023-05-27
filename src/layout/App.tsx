@@ -1,8 +1,9 @@
 import React from "react";
+import { Header } from "src/components/board/Header/Header";
 import { BoardProvider } from "src/lib/board/board";
 import { theme } from "src/lib/css/theme";
 import styled, { ThemeProvider } from "styled-components";
-import { RoomPlayground } from "./playgrounds/RoomPlayground";
+import { Board } from "./board/Board";
 
 const AppWrapperOutter = styled.div`
   margin: 0;
@@ -86,7 +87,8 @@ export const App: React.FC = () => {
         initialDistribution={distribution}
       >
         <AppWrapperOutter>
-          <RoomPlayground />
+          <Header />
+          <Board />
         </AppWrapperOutter>
       </BoardProvider>
     </ThemeProvider>

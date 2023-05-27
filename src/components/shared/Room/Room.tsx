@@ -7,13 +7,13 @@ const RoomWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0.8rem;
+  padding: 1rem 1.2rem;
   gap: 0.8rem;
 
   min-width: 20rem;
 
   background-color: ${(p) => p.theme.colors.green200};
-  border-radius: 8px;
+  border-radius: ${(p) => p.theme.radius.m};
 
   transition: background-color 0.3s;
 

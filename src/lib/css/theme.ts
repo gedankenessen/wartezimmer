@@ -1,3 +1,5 @@
+import { breakpoints } from "./breakpoints";
+
 export const theme = {
   colors: {
     white: "white",
@@ -15,4 +17,16 @@ export const theme = {
     grey400: "#c2c2c2",
     grey500: "#AAAAAA",
   },
+
+  radius: {
+    s: "0.5rem",
+    m: "1rem",
+  },
+
+  width: {
+    contentWidth: `calc(100% - 12rem)`,
+    boardWidth: `calc(100% - 18rem)`,
+  },
+
+  breakpoints: breakpoints,
 };

@@ -40,7 +40,7 @@ export const Person: React.FC<PersonProps> = ({
   short,
   variant = "full",
 }) => (
-  <Draggable id={id} index={index}>
+  <Draggable key={id} id={id} index={index}>
     <PersonWrapper>{short}</PersonWrapper>
   </Draggable>
 );

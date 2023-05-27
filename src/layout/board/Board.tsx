@@ -5,6 +5,7 @@ import { Timescale } from "src/components/board/Timescale/Timescale";
 import { DragzoneProps } from "src/components/shared/Dragzone/Dragzone";
 import { Room } from "src/components/shared/Room/Room";
 import { useBoard } from "src/lib/board/board";
+import { content } from "src/lib/css/util";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
@@ -12,6 +13,8 @@ const AppWrapper = styled.div`
   justify-content: center;
   padding: 3rem;
   background-color: ${(p) => p.theme.colors.green100};
+
+  ${content()}
 `;
 
 const AppContent = styled.div`
@@ -36,9 +39,10 @@ const RoomWrapper = styled.div`
   flex-direction: row;
   justify-content: end;
   gap: 1.2rem;
+  align-self: end;
 `;
 
-export const RoomPlayground: React.FC = () => {
+export const Board: React.FC = () => {
   const { appointments, distribution, people, rooms, dispatch } = useBoard();
 
   const onDragEnd = (result: DropResult) => {

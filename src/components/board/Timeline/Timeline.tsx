@@ -28,7 +28,7 @@ const TimelineWrapper = styled.div`
   background-color: ${(p) => p.theme.colors.green200};
   padding: 1rem;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: ${(p) => p.theme.radius.m};
 `;
 
 const TimeSlot = styled.div`
