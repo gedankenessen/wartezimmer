@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/wartezimmer/static/js/main.e2b44e4b.js",
+    "main.js": "/wartezimmer/static/js/main.284033b3.js",
     "index.html": "/wartezimmer/index.html",
-    "main.e2b44e4b.js.map": "/wartezimmer/static/js/main.e2b44e4b.js.map"
+    "main.284033b3.js.map": "/wartezimmer/static/js/main.284033b3.js.map"
   },
   "entrypoints": [
-    "static/js/main.e2b44e4b.js"
+    "static/js/main.284033b3.js"
   ]
 }
