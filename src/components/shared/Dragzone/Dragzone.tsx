@@ -6,14 +6,14 @@ import { Person, PersonProps } from "../Person/Person";
 const DragzoneWrapperInner = styled.div`
   width: 3.2rem;
   height: 3.2rem;
-  border: 2px dashed ${(p) => p.theme.colors.grey400};
+  outline: 2px dashed ${(p) => p.theme.colors.grey400};
 
-  transition: border-color 0.3s;
+  transition: outline-color 0.3s;
 
   &:hover,
   &:active,
   &:focus-visible {
-    border-color: ${(p) => p.theme.colors.green700};
+    outline-color: ${(p) => p.theme.colors.green700};
   }
 `;
 
